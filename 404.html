@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>404 - 페이지를 찾을 수 없습니다</title>
+    <link rel="stylesheet" href="/front_6th_chapter1-2/styles.css" />
     <style>
       body {
         background: #f9fafb;
@@ -17,29 +18,45 @@
         align-items: center;
         justify-content: center;
       }
+      .notfound-box {
+        text-align: center;
+        margin: 2rem 0;
+        padding: 5rem 1.5rem;
+        background: #fff;
+        border-radius: 1rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      }
       .home-link {
-        margin-top: 32px;
         display: inline-block;
-        background: #4285f4;
+        margin-top: 2rem;
+        padding: 0.5rem 1.5rem;
+        background: #3b82f6;
         color: #fff;
-        padding: 12px 32px;
-        border-radius: 8px;
+        border-radius: 0.5rem;
         text-decoration: none;
         font-weight: 600;
         transition: background 0.2s;
       }
       .home-link:hover {
-        background: #1a73e8;
+        background: #2563eb;
+      }
+      .logo {
+        margin-bottom: 2rem;
       }
     </style>
   </head>
   <body>
     <div class="center">
-      <!-- SVG 404 이미지 -->
-      <div style="max-width: 320px; margin-bottom: 24px">
-        <img src="/front_6th_chapter1-2/public/404.svg" alt="404 Not Found" style="width: 100%; height: auto" />
+      <div class="notfound-box">
+        <img
+          src="/front_6th_chapter1-2/public/404.svg"
+          alt="페이지를 찾을 수 없습니다"
+          style="width: 120px; height: auto; margin-bottom: 2rem"
+        />
+        <div>
+          <a href="/front_6th_chapter1-2/" class="home-link">홈으로</a>
+        </div>
       </div>
-      <a href="/front_6th_chapter1-2/" class="home-link">홈으로 돌아가기</a>
     </div>
   </body>
 </html>
