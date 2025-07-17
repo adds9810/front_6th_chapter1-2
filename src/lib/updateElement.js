@@ -91,10 +91,17 @@ export function updateElement($el, oldVNode, newVNode) {
   // 같은 참조면 업데이트 불필요
   if (oldVNode === newVNode) return;
 
-  // 텍스트 노드 처리
+  // 텍스트 노드 처리: 새로운 VNode가 텍스트일 경우
   if (typeof newVNode === "string" || typeof newVNode === "number") {
-    if ($el.textContent !== String(newVNode)) {
-      $el.textContent = String(newVNode);
+    // 기존 DOM 노드가 텍스트 노드인 경우, 내용만 교체
+    if ($el.nodeType === Node.TEXT_NODE) {
+      if ($el.textContent !== String(newVNode)) {
+        $el.textContent = String(newVNode);
+      }
+    } else {
+      // 기존 DOM 노드가 요소인 경우, 텍스트 노드로 교체
+      const newTextNode = document.createTextNode(String(newVNode));
+      $el.parentNode.replaceChild(newTextNode, $el);
     }
     return;
   }
